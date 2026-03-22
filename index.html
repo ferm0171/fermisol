@@ -510,11 +510,19 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.4);padding:70px 0 30px
   </div>
   <div class="contact-form anim d2">
     <h3>DEMANDER UN DEVIS GRATUIT</h3>
-    <div class="fr"><div class="fg"><label>Nom *</label><input type="text" placeholder="Votre nom"></div><div class="fg"><label>Prénom *</label><input type="text" placeholder="Votre prénom"></div></div>
-    <div class="fr"><div class="fg"><label>Téléphone *</label><input type="tel" placeholder="+41 76 728 43 83"></div><div class="fg"><label>Email</label><input type="email" placeholder="votre@email.ch"></div></div>
-    <div class="fr"><div class="fg full"><label>Type de projet *</label><select><option value="" disabled selected>Sélectionnez un type de projet</option><option>Maîtrise d'œuvre</option><option>Rénovation appartement</option><option>Rénovation villa</option><option>Menuiserie</option><option>Construction neuve</option><option>Isolation / Rénovation énergétique</option><option>Peinture / Finitions</option><option>Agencement intérieur</option><option>Autre</option></select></div></div>
-    <div class="fr"><div class="fg full"><label>Votre projet</label><textarea placeholder="Décrivez votre projet, vos besoins, la surface concernée, le budget estimé..."></textarea></div></div>
-    <div class="form-submit"><button class="btn btn-primary" id="submitBtn" onclick="handleSubmit()">Envoyer ma demande <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg></button></div>
+    <form id="devisForm" action="https://formsubmit.co/contact@ferm-isol.ch" method="POST">
+      <!-- Formsubmit config -->
+      <input type="hidden" name="_subject" value="Nouvelle demande de devis — Ferm Isol">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://optimatouverture-sketch.github.io/fermisol/#contact">
+      <input type="text" name="_honey" style="display:none">
+      <div class="fr"><div class="fg"><label>Nom *</label><input type="text" name="Nom" placeholder="Votre nom" required></div><div class="fg"><label>Prénom *</label><input type="text" name="Prénom" placeholder="Votre prénom" required></div></div>
+      <div class="fr"><div class="fg"><label>Téléphone *</label><input type="tel" name="Téléphone" placeholder="+41 XX XXX XX XX" required></div><div class="fg"><label>Email</label><input type="email" name="Email" placeholder="votre@email.ch"></div></div>
+      <div class="fr"><div class="fg full"><label>Type de projet *</label><select name="Type de projet" required><option value="" disabled selected>Sélectionnez un type de projet</option><option>Maîtrise d'œuvre</option><option>Rénovation appartement</option><option>Rénovation villa</option><option>Menuiserie</option><option>Construction neuve</option><option>Isolation / Rénovation énergétique</option><option>Peinture / Finitions</option><option>Agencement intérieur</option><option>Autre</option></select></div></div>
+      <div class="fr"><div class="fg full"><label>Votre projet</label><textarea name="Description du projet" placeholder="Décrivez votre projet, vos besoins, la surface concernée, le budget estimé..."></textarea></div></div>
+      <div class="form-submit"><button type="submit" class="btn btn-primary" id="submitBtn">Envoyer ma demande <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg></button></div>
+    </form>
   </div>
 </div>
 </section>
@@ -628,16 +636,15 @@ window.addEventListener('scroll',()=>{
   }
 });
 
-// Form
-function handleSubmit(){
-  const b=document.getElementById('submitBtn');
-  b.innerHTML='✓ Demande envoyée avec succès';
-  b.style.background='#2E7D5B';
-  b.style.boxShadow='0 8px 30px rgba(46,125,91,.35)';
-  setTimeout(()=>{
-    b.innerHTML='Envoyer ma demande <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>';
-    b.style.background='';b.style.boxShadow='';
-  },3500);
+// Form submit animation
+var devisForm=document.getElementById('devisForm');
+if(devisForm){
+  devisForm.addEventListener('submit',function(){
+    var b=document.getElementById('submitBtn');
+    b.innerHTML='✓ Envoi en cours...';
+    b.style.background='#2E7D5B';
+    b.style.boxShadow='0 8px 30px rgba(46,125,91,.35)';
+  });
 }
 
 // Display email (bypass Cloudflare obfuscation)
