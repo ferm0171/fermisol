@@ -1,2 +1,1 @@
-# fermisol
-web site
+https://ferm0171.github.io/fermisol/
