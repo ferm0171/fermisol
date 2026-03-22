@@ -510,12 +510,12 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.4);padding:70px 0 30px
   </div>
   <div class="contact-form anim d2">
     <h3>DEMANDER UN DEVIS GRATUIT</h3>
-    <form id="devisForm" action="https://formsubmit.co/contact@ferm-isol.ch" method="POST">
+    <form id="devisForm" action="#" method="POST">
       <!-- Formsubmit config -->
       <input type="hidden" name="_subject" value="Nouvelle demande de devis — Ferm Isol">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://optimatouverture-sketch.github.io/fermisol/#contact">
+      <input type="hidden" name="_next" id="formNext" value="#">
       <input type="text" name="_honey" style="display:none">
       <div class="fr"><div class="fg"><label>Nom *</label><input type="text" name="Nom" placeholder="Votre nom" required></div><div class="fg"><label>Prénom *</label><input type="text" name="Prénom" placeholder="Votre prénom" required></div></div>
       <div class="fr"><div class="fg"><label>Téléphone *</label><input type="tel" name="Téléphone" placeholder="+41 XX XXX XX XX" required></div><div class="fg"><label>Email</label><input type="email" name="Email" placeholder="votre@email.ch"></div></div>
@@ -651,6 +651,14 @@ if(devisForm){
 var em='contact'+'@'+'ferm-isol'+'.ch';
 var eld=document.getElementById('emailDisplay');
 if(eld)eld.innerHTML='<a href="mai'+'lto:'+em+'" style="color:inherit;text-decoration:none">'+em+'</a>';
+
+// Set form action dynamically (bypass Cloudflare email obfuscation)
+var df=document.getElementById('devisForm');
+if(df){
+  df.setAttribute('action','https://formsubmit'+'.co/'+em);
+  var fn=document.getElementById('formNext');
+  if(fn)fn.value='https://optimatouverture-sketch.github'+'.io/fermisol/#contact';
+}
 
 // Chatbot
 const chatToggle=document.getElementById('chatToggle');
