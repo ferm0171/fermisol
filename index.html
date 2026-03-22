@@ -230,6 +230,44 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.4);padding:70px 0 30px
 .fc ul a{color:rgba(255,255,255,.3);text-decoration:none;font-size:.85rem;transition:color .3s}
 .fc ul a:hover{color:var(--blue)}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.04);padding-top:28px;display:flex;justify-content:space-between;align-items:center;font-size:.76rem}
+
+/* SOCIAL LINKS */
+.social-links{display:flex;gap:10px;margin-top:20px}
+.social-link{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;transition:all .3s;text-decoration:none}
+.social-link:hover{background:var(--grad-steel);border-color:transparent;transform:translateY(-3px)}
+.social-link svg{width:18px;height:18px;fill:rgba(255,255,255,.4);transition:fill .3s}
+.social-link:hover svg{fill:white}
+
+/* CHATBOT */
+.chatbot-toggle{position:fixed;bottom:28px;right:28px;width:62px;height:62px;border-radius:50%;background:var(--grad-steel);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(74,111,165,.4);z-index:999;transition:all .35s cubic-bezier(.16,1,.3,1)}
+.chatbot-toggle:hover{transform:scale(1.08);box-shadow:0 12px 40px rgba(74,111,165,.5)}
+.chatbot-toggle svg{width:28px;height:28px;fill:white;transition:transform .3s}
+.chatbot-toggle.open svg{transform:rotate(90deg)}
+.chatbot-badge{position:absolute;top:-2px;right:-2px;width:18px;height:18px;border-radius:50%;background:#E63946;font-size:.6rem;font-weight:800;color:white;display:flex;align-items:center;justify-content:center;border:2px solid var(--charcoal);animation:pulse 2s infinite}
+.chatbot-window{position:fixed;bottom:100px;right:28px;width:380px;max-height:520px;background:var(--pure);border-radius:18px;box-shadow:0 25px 80px rgba(0,0,0,.2);z-index:998;display:none;flex-direction:column;overflow:hidden;border:1px solid var(--off-white);animation:fadeUp .4s cubic-bezier(.16,1,.3,1)}
+.chatbot-window.open{display:flex}
+.chatbot-header{background:var(--charcoal);padding:20px 24px;display:flex;align-items:center;gap:14px}
+.chatbot-avatar{width:42px;height:42px;border-radius:12px;background:var(--grad-steel);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.chatbot-avatar svg{width:22px;height:22px;fill:white}
+.chatbot-header-text h4{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--pure);letter-spacing:.06em;margin-bottom:1px}
+.chatbot-header-text span{font-size:.7rem;color:rgba(255,255,255,.4);font-weight:600}
+.chatbot-status{width:8px;height:8px;border-radius:50%;background:#4ADE80;margin-left:auto;flex-shrink:0;animation:pulse 2.5s infinite}
+.chatbot-body{flex:1;padding:24px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;max-height:320px;background:var(--white)}
+.chat-msg{max-width:85%;padding:14px 18px;border-radius:14px;font-size:.85rem;line-height:1.6;animation:fadeUp .4s cubic-bezier(.16,1,.3,1)}
+.chat-msg.bot{background:var(--pure);border:1px solid var(--off-white);color:var(--text);align-self:flex-start;border-bottom-left-radius:4px}
+.chat-msg.user{background:var(--grad-steel);color:white;align-self:flex-end;border-bottom-right-radius:4px}
+.chat-msg .msg-time{display:block;font-size:.6rem;color:var(--text3);margin-top:6px;font-weight:600}
+.chat-msg.user .msg-time{color:rgba(255,255,255,.5)}
+.chat-quick-actions{display:flex;flex-wrap:wrap;gap:8px;padding:0 24px 18px;background:var(--white)}
+.chat-quick{padding:8px 16px;border-radius:50px;border:1px solid var(--off-white);background:var(--pure);font-size:.75rem;font-weight:600;color:var(--steel);cursor:pointer;transition:all .25s;font-family:'Plus Jakarta Sans',sans-serif}
+.chat-quick:hover{background:var(--grad-steel);color:white;border-color:transparent;transform:translateY(-1px)}
+.chatbot-input{display:flex;gap:10px;padding:16px 20px;border-top:1px solid var(--off-white);background:var(--pure)}
+.chatbot-input input{flex:1;padding:12px 16px;border-radius:10px;border:1px solid var(--off-white);font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;color:var(--text);outline:none;background:var(--white);transition:border-color .3s}
+.chatbot-input input:focus{border-color:var(--steel)}
+.chatbot-input button{width:42px;height:42px;border-radius:10px;background:var(--grad-steel);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0}
+.chatbot-input button:hover{transform:scale(1.05)}
+.chatbot-input button svg{width:18px;height:18px;fill:white}
+@media(max-width:768px){.chatbot-window{right:12px;left:12px;width:auto;bottom:90px}}
 .footer-sarl{color:rgba(255,255,255,.25);font-size:.7rem;margin-top:6px}
 
 /* ════════ RESPONSIVE ════════ */
@@ -395,7 +433,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.4);padding:70px 0 30px
   </div>
   <div class="services-grid">
     <div class="svc anim"><div class="svc-img"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=500&q=80" alt="Rénovation intérieure"><div class="svc-num">01</div></div><div class="svc-content"><h3>Rénovation Complète</h3><p>Transformation intégrale d'appartements et villas. Du sol au plafond, une rénovation d'excellence.</p><div class="svc-tags"><span class="svc-tag">Appartements</span><span class="svc-tag">Villas</span><span class="svc-tag">TCE</span></div></div></div>
-    <div class="svc anim d1"><div class="svc-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=500&q=80" alt="Menuiserie bois"><div class="svc-num">02</div></div><div class="svc-content"><h3>Menuiserie</h3><p>Pose et fabrication de menuiseries intérieures et extérieures. Fenêtres, portes, agencements bois sur mesure.</p><div class="svc-tags"><span class="svc-tag">Fenêtres</span><span class="svc-tag">Portes</span><span class="svc-tag">Sur mesure</span></div></div></div>
+    <div class="svc anim d1"><div class="svc-img"><img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=500&q=80" alt="Baie vitrée aluminium"><div class="svc-num">02</div></div><div class="svc-content"><h3>Menuiserie</h3><p>Pose et fabrication de menuiseries intérieures et extérieures. Fenêtres, baies vitrées alu, portes sur mesure.</p><div class="svc-tags"><span class="svc-tag">Baies vitrées</span><span class="svc-tag">Alu</span><span class="svc-tag">Sur mesure</span></div></div></div>
     <div class="svc anim d2"><div class="svc-img"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=80" alt="Chantier construction"><div class="svc-num">03</div></div><div class="svc-content"><h3>Construction</h3><p>Construction neuve, extensions et surélévations. Gros œuvre et second œuvre dans le respect des normes suisses.</p><div class="svc-tags"><span class="svc-tag">Neuf</span><span class="svc-tag">Extension</span><span class="svc-tag">Gros œuvre</span></div></div></div>
     <div class="svc anim"><div class="svc-img"><img src="https://images.unsplash.com/photo-1607400201515-c2c41c07d307?w=500&q=80" alt="Isolation thermique"><div class="svc-num">04</div></div><div class="svc-content"><h3>Rénovation Énergétique</h3><p>Isolation thermique, performance énergétique. Accompagnement dans les démarches de subventions et certifications.</p><div class="svc-tags"><span class="svc-tag">Isolation</span><span class="svc-tag">Performance</span><span class="svc-tag">Subventions</span></div></div></div>
     <div class="svc anim d1"><div class="svc-img"><img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=500&q=80" alt="Peinture intérieure"><div class="svc-num">05</div></div><div class="svc-content"><h3>Peinture & Finitions</h3><p>Peinture intérieure et extérieure, enduits décoratifs, revêtements muraux. Des finitions dignes de l'exigence genevoise.</p><div class="svc-tags"><span class="svc-tag">Peinture</span><span class="svc-tag">Enduits</span><span class="svc-tag">Revêtements</span></div></div></div>
@@ -466,7 +504,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.4);padding:70px 0 30px
     <p class="anim d2">Un projet de rénovation, construction ou maîtrise d'œuvre à Genève ? Contactez Ferm Isol SARL pour un devis gratuit et personnalisé. Réponse garantie sous 48h.</p>
     <div class="contact-details anim d3">
       <div class="cd"><div class="cd-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><strong>Téléphone</strong><span>+41 76 728 43 83</span></div></div>
-      <div class="cd"><div class="cd-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><strong>Email</strong><span>contact@ferm-isol.ch</span></div></div>
+      <div class="cd"><div class="cd-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><strong>Email</strong><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="88ebe7e6fce9ebfcc8eeedfae5a5e1fbe7e4a6ebe0">[email&#160;protected]</a></span></div></div>
       <div class="cd"><div class="cd-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><strong>Zone d'intervention</strong><span>Genève · Bassin lémanique</span></div></div>
     </div>
   </div>
@@ -492,6 +530,12 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.4);padding:70px 0 30px
       </a>
       <p>Ferm Isol SARL — Votre partenaire de confiance pour la maîtrise d'œuvre, la rénovation et la construction à Genève.</p>
       <div class="footer-sarl">FERM ISOL SARL · Genève · Suisse</div>
+      <div class="social-links">
+        <a href="https://www.facebook.com/fermisol" target="_blank" class="social-link" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/fermisol" target="_blank" class="social-link" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
+        <a href="https://www.linkedin.com/company/fermisol" target="_blank" class="social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="https://wa.me/41767284383" target="_blank" class="social-link" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg></a>
+      </div>
     </div>
     <div class="fc"><h4>Services</h4><ul><li><a href="#services">Maîtrise d'œuvre</a></li><li><a href="#services">Rénovation</a></li><li><a href="#services">Menuiserie</a></li><li><a href="#services">Construction</a></li><li><a href="#services">Isolation</a></li><li><a href="#services">Peinture</a></li></ul></div>
     <div class="fc"><h4>Entreprise</h4><ul><li><a href="#expertise">Notre expertise</a></li><li><a href="#about">À propos</a></li><li><a href="#gallery">Réalisations</a></li><li><a href="#contact">Contact</a></li></ul></div>
@@ -501,7 +545,33 @@ footer{background:var(--charcoal);color:rgba(255,255,255,.4);padding:70px 0 30px
 </div>
 </footer>
 
-<script>
+<!-- CHATBOT -->
+<button class="chatbot-toggle" id="chatToggle" aria-label="Chat">
+  <svg viewBox="0 0 24 24" id="chatIcon"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <span class="chatbot-badge">1</span>
+</button>
+<div class="chatbot-window" id="chatWindow">
+  <div class="chatbot-header">
+    <div class="chatbot-avatar"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+    <div class="chatbot-header-text"><h4>FERM ISOL</h4><span>Réponse en quelques minutes</span></div>
+    <div class="chatbot-status"></div>
+  </div>
+  <div class="chatbot-body" id="chatBody">
+    <div class="chat-msg bot">Bonjour ! 👋 Bienvenue chez Ferm Isol SARL. Comment puis-je vous aider ?<span class="msg-time">Maintenant</span></div>
+  </div>
+  <div class="chat-quick-actions" id="quickActions">
+    <button class="chat-quick" onclick="quickMsg('Demander un devis')">📋 Demander un devis</button>
+    <button class="chat-quick" onclick="quickMsg('Voir les services')">🔧 Nos services</button>
+    <button class="chat-quick" onclick="quickMsg('Contacter par téléphone')">📞 Nous appeler</button>
+    <button class="chat-quick" onclick="quickMsg('Délai intervention')">⏱️ Délais</button>
+  </div>
+  <div class="chatbot-input">
+    <input type="text" id="chatInput" placeholder="Écrivez votre message..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button onclick="sendChat()"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg></button>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Nav scroll
 const nb=document.getElementById('navbar');
 window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',window.scrollY>30));
@@ -569,6 +639,86 @@ function handleSubmit(){
     b.style.background='';b.style.boxShadow='';
   },3500);
 }
+
+// Chatbot
+const chatToggle=document.getElementById('chatToggle');
+const chatWindow=document.getElementById('chatWindow');
+const chatBody=document.getElementById('chatBody');
+const chatInput=document.getElementById('chatInput');
+const quickActions=document.getElementById('quickActions');
+const chatBadge=document.querySelector('.chatbot-badge');
+
+chatToggle.addEventListener('click',()=>{
+  chatWindow.classList.toggle('open');
+  chatToggle.classList.toggle('open');
+  if(chatBadge)chatBadge.style.display='none';
+  if(chatWindow.classList.contains('open'))chatInput.focus();
+});
+
+function getTime(){return new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})}
+
+function addMsg(text,type){
+  const d=document.createElement('div');
+  d.className='chat-msg '+type;
+  d.innerHTML=text+'<span class="msg-time">'+getTime()+'</span>';
+  chatBody.appendChild(d);
+  chatBody.scrollTop=chatBody.scrollHeight;
+}
+
+function botReply(text,delay){
+  delay=delay||1000;
+  setTimeout(()=>addMsg(text,'bot'),delay);
+}
+
+const replies={
+  'Demander un devis':'Avec plaisir ! Vous pouvez remplir notre <a href="#contact" style="color:var(--steel);font-weight:700" onclick="document.getElementById(\'chatWindow\').classList.remove(\'open\')">formulaire de devis</a> ou nous appeler au <strong>+41 76 728 43 83</strong>. Nous vous répondons sous 48h !',
+  'Voir les services':'Nous proposons : <strong>Maîtrise d\'œuvre</strong>, rénovation complète, menuiserie (baies vitrées alu, fenêtres), construction, isolation thermique, peinture & finitions, agencement intérieur. <a href="#services" style="color:var(--steel);font-weight:700" onclick="document.getElementById(\'chatWindow\').classList.remove(\'open\')">Voir tous nos services →</a>',
+  'Contacter par téléphone':'Vous pouvez nous joindre au <strong>+41 76 728 43 83</strong> ou par email à <strong>contact@ferm-isol.ch</strong>. Nous sommes disponibles du lundi au vendredi, 8h-18h.',
+  'Délai intervention':'Nous établissons un devis gratuit sous <strong>48 heures</strong>. Pour les travaux, le délai dépend du projet — nous planifions ensemble un calendrier précis dès la validation.'
+};
+
+function quickMsg(text){
+  addMsg(text,'user');
+  quickActions.style.display='none';
+  if(replies[text])botReply(replies[text]);
+}
+
+function sendChat(){
+  const v=chatInput.value.trim();
+  if(!v)return;
+  addMsg(v,'user');
+  chatInput.value='';
+  quickActions.style.display='none';
+  
+  const low=v.toLowerCase();
+  let response;
+  if(low.includes('devis')||low.includes('prix')||low.includes('coût')||low.includes('tarif')||low.includes('combien'))
+    response='Pour un devis précis, remplissez notre <a href="#contact" style="color:var(--steel);font-weight:700" onclick="document.getElementById(\'chatWindow\').classList.remove(\'open\')">formulaire</a> ou appelez-nous au <strong>+41 76 728 43 83</strong>. C\'est gratuit et sans engagement !';
+  else if(low.includes('service')||low.includes('quoi')||low.includes('faites'))
+    response='Nous sommes spécialisés en maîtrise d\'œuvre, rénovation tous corps d\'état, menuiserie alu, construction et isolation. <a href="#services" style="color:var(--steel);font-weight:700" onclick="document.getElementById(\'chatWindow\').classList.remove(\'open\')">Découvrez nos services →</a>';
+  else if(low.includes('téléphone')||low.includes('appel')||low.includes('contact')||low.includes('mail'))
+    response='📞 <strong>+41 76 728 43 83</strong><br>✉️ <strong>contact@ferm-isol.ch</strong><br>Nous sommes disponibles du lundi au vendredi, 8h-18h.';
+  else if(low.includes('genève')||low.includes('zone')||low.includes('où'))
+    response='Nous intervenons sur tout le <strong>bassin genevois</strong> : Genève, Carouge, Cologny, Champel, Vernier, Lancy et communes environnantes.';
+  else if(low.includes('délai')||low.includes('quand')||low.includes('temps'))
+    response='Devis gratuit sous <strong>48h</strong>. Le planning des travaux est défini ensemble dès la validation du devis.';
+  else if(low.includes('bonjour')||low.includes('salut')||low.includes('hello')||low.includes('bonsoir'))
+    response='Bonjour ! 😊 Comment puis-je vous aider ? N\'hésitez pas à poser vos questions sur nos services ou demander un devis.';
+  else if(low.includes('merci')||low.includes('super')||low.includes('parfait'))
+    response='Avec plaisir ! N\'hésitez pas si vous avez d\'autres questions. Bonne journée ! 😊';
+  else
+    response='Merci pour votre message ! Pour une réponse personnalisée, contactez-nous au <strong>+41 76 728 43 83</strong> ou via notre <a href="#contact" style="color:var(--steel);font-weight:700" onclick="document.getElementById(\'chatWindow\').classList.remove(\'open\')">formulaire de contact</a>.';
+  
+  botReply(response,1200);
+}
+
+// Auto open chat after 8 seconds
+setTimeout(()=>{
+  if(!chatWindow.classList.contains('open')){
+    chatToggle.style.transform='scale(1.15)';
+    setTimeout(()=>chatToggle.style.transform='',300);
+  }
+},8000);
 </script>
 </body>
 </html>
